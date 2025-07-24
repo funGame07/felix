@@ -389,6 +389,11 @@
             e.preventDefault();
 
             const formData = new FormData(form);
+            formData.entries().forEach(([key, value]) => {
+                if (typeof value === 'string') {
+                    formData.set(key, value.toUpperCase());
+                }
+            });
             const payload = Object.fromEntries(formData.entries());
 
             if (file) {
