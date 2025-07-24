@@ -22,16 +22,16 @@ function doPost(e) {
     const ss = SpreadsheetApp.openById("1dA6sUr9wQXpfmNCB4hx6fbDvp3EmpeQuDShKg7EK4a8");
     const sheet = ss.getSheetByName("AYDA 88");
     sheet.appendRow([
+      data.tangalin,
       data.namaD,
       data.NOPOL,
       data.NOKON,
-      data.tangalin,
-      data.namaBTB,
-      data.norekd,
       data.bankd,
-      data.cab,
-      data.notf,
+      data.norekd,
+      data.namaBTB,
       data.ketd,
+      data.notf,
+      data.cab,
       fileUrl
     ]);
 
