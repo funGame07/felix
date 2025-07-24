@@ -354,11 +354,11 @@
 
         // Function to format currency input
         function formatCurrency(input) {
-            let num = input.value.replace(/\D/g, '');
+            let num = input.replace(/\D/g, '');
             if (num) {
-                input.value = new Intl.NumberFormat('id-ID').format(num);
+                return new Intl.NumberFormat('id-ID').format(num);
             } else {
-                input.value = '';
+                return '';
             }
         }
 
@@ -392,6 +392,9 @@
             formData.entries().forEach(([key, value]) => {
                 if (typeof value === 'string') {
                     formData.set(key, value.toUpperCase());
+                }
+                if(key === "notf") {
+                    formData.set(key, formatCurrency(value));
                 }
             });
             const payload = Object.fromEntries(formData.entries());
